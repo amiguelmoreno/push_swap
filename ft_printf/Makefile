@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2022/06/10 09:58:11 by antmoren         ###   ########.fr        #
+#    Updated: 2022/06/10 13:20:25 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,54 +15,53 @@ NAME = libftprintf.a
 
 # Folders of the source files (*.c)
 SRC_DIR = sources/
-LIB_DIR = libft/
+LIBFT_DIR = libft/
 
 # Source files
-PRINTF = 	ft_printf.c			\
+PRINTF 		= 	ft_printf.c			\
 
-SRC_FILES = ft_printf_utils.c 	\
-			ft_treat_char.c 	\
-			ft_treat_decimals.c \
-			ft_treat_pointer.c 	\
-			ft_treat_hex.c 		\
-			ft_treat_percent.c 	\
-			ft_treat_string.c 	\
+SRC_FILES 	= 	ft_printf_utils.c 	\
+				ft_treat_char.c 	\
+				ft_treat_decimals.c \
+				ft_treat_pointer.c 	\
+				ft_treat_hex.c 		\
+				ft_treat_percent.c 	\
+				ft_treat_string.c 	\
 
-
-LIBFT_FILES = 	ft_isalnum.c			\
-				ft_isalpha.c 			\
-				ft_isascii.c 			\
-				ft_isdigit.c			\
-				ft_isprint.c 			\
-				ft_strlen.c				\
-				ft_strncmp.c 			\
-				ft_strlcat.c 			\
-				ft_strlcpy.c			\
-				ft_strchr.c 			\
-				ft_strrchr.c			\
-				ft_toupper.c 			\
-				ft_tolower.c			\
-				ft_atoi.c				\
-				ft_bzero.c				\
-				ft_memset.c				\
-				ft_memcpy.c				\
-				ft_memmove.c 			\
-				ft_memchr.c 			\
-				ft_memcmp.c 			\
-				ft_strnstr.c			\
-				ft_calloc.c				\
-				ft_strdup.c				\
-				ft_substr.c 			\
-				ft_strjoin.c			\
-				ft_strtrim.c			\
-				ft_split.c				\
-				ft_putchar_fd.c 		\
-				ft_putendl_fd.c 		\
-				ft_putnbr_fd.c 			\
-				ft_putstr_fd.c 			\
-				ft_itoa.c 				\
-				ft_strmapi.c 			\
-				ft_striteri.c 			\
+LIBFT_FILES = 	ft_isalnum.c	\
+				ft_isalpha.c 	\
+				ft_isascii.c 	\
+				ft_isdigit.c	\
+				ft_isprint.c 	\
+				ft_strlen.c		\
+				ft_strncmp.c 	\
+				ft_strlcat.c 	\
+				ft_strlcpy.c	\
+				ft_strchr.c 	\
+				ft_strrchr.c	\
+				ft_toupper.c 	\
+				ft_tolower.c	\
+				ft_atoi.c		\
+				ft_bzero.c		\
+				ft_memset.c		\
+				ft_memcpy.c		\
+				ft_memmove.c 	\
+				ft_memchr.c 	\
+				ft_memcmp.c 	\
+				ft_strnstr.c	\
+				ft_calloc.c		\
+				ft_strdup.c		\
+				ft_substr.c 	\
+				ft_strjoin.c	\
+				ft_strtrim.c	\
+				ft_split.c		\
+				ft_putchar_fd.c \
+				ft_putendl_fd.c \
+				ft_putnbr_fd.c 	\
+				ft_putstr_fd.c 	\
+				ft_itoa.c 		\
+				ft_strmapi.c 	\
+				ft_striteri.c 	\
 				ft_lstnew_bonus.c		\
 				ft_lstadd_front_bonus.c \
 				ft_lstsize_bonus.c 		\
@@ -73,30 +72,34 @@ LIBFT_FILES = 	ft_isalnum.c			\
 				ft_lstiter_bonus.c  	\
 				ft_lstmap_bonus.c 		\
 
+
+
 # Source files path
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
-LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
+LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
+
 
 # Objects
-OBJ = $(PRINTF:.c=.o) $(SRC:.c=.o) $(LIBFT:.c=.o) 
+OBJS = $(PRINTF:.c=.o) $(SRC:.c=.o) $(LIBFT:.c=.o)
+
 	
 # Flags
 CC 		= gcc 
 INC 	= -I includes/
-FLAGS 	= -Wall -Wextra -Werror
+CFLAGS 	= -Wall -Wextra -Werror
+AR 		= ar rcs
 
 # all rule
 all: $(NAME)
 
 # Compiling command
-$(NAME): $(OBJ)
-	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compiling... Wait a sec."
-	@ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 	@echo "(•̀ᴗ•́)و $(NAME) generated!".
 
 # clean rule
-clean:
-	@/bin/rm -f $(OBJ)
+clean: 
+	@/bin/rm -f $(OBJS)
 
 # fclean rule
 fclean: clean

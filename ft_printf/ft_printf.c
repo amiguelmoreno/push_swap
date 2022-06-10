@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 19:45:55 by antmoren          #+#    #+#             */
-/*   Updated: 2022/06/10 10:48:57 by antmoren         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:55:52 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_printf(char const *format, ...)
 	va_end(ptr);
 	return (cnt);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -103,3 +103,4 @@ int	main(void)
 	printf("Printf -> porcentaje: %%\n");
 	ft_printf("Printf -> porcentaje: %%\n");
 }
+*/
