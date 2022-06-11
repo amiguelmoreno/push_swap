@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 11:04:57 by antmoren          #+#    #+#             */
-/*   Updated: 2022/06/12 00:46:06 by antmoren         ###   ########.fr       */
+/*   Created: 2022/06/11 20:44:49 by antmoren          #+#    #+#             */
+/*   Updated: 2022/06/12 00:44:48 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int argc, char **argv)
+# include "ft_printf/includes/ft_printf.h"
+# include <unistd.h>
+
+typedef struct list_elemnt
 {
-	int	i;
-	int	j;
+	char				*content;
+	struct list_elemnt	*next;
+}						t_entry;
 
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if ((argv[i][j] < 48 || argv[i][j] > 57) && argv[i][0] != 45)
-			{
-				ft_printf("Error\n");
-				return (0);
-			}
-			j++;
-		}
-		ft_printf("%s\n", argv[i]);
-		ft_printf("%d\n", argc);
-		i++;
-	}
-}
+#endif

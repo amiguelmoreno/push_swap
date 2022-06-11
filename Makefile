@@ -6,24 +6,21 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 12:07:26 by antmoren          #+#    #+#              #
-#    Updated: 2022/06/10 14:48:10 by antmoren         ###   ########.fr        #
+#    Updated: 2022/06/11 23:56:28 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap.a
 
-# Source files
-PUSH_SWAP	= 	push_swap.c
-
+#Paths
 PRINTF_DIR = ft_printf/
-SRC_DIR = ft_printf/sources/
+PRINTF_SRC_DIR = ft_printf/sources/
 LIBFT_DIR = ft_printf/libft/
 
-
 # Source files
-PRINTF 		= 	ft_printf.c			\
-
-SRC_FILES 	= 	ft_printf_utils.c 	\
+PUSH_SWAP	= 	push_swap.c
+PRINTF_FILE		= 	ft_printf.c			\
+PRINTF_SRC	= 	ft_printf_utils.c 	\
 				ft_treat_char.c 	\
 				ft_treat_decimals.c \
 				ft_treat_pointer.c 	\
@@ -75,12 +72,10 @@ LIBFT_FILES = 	ft_isalnum.c	\
 				ft_lstiter_bonus.c  	\
 				ft_lstmap_bonus.c 		\
 
-
 # Source files path
-PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF_FILES))
-SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
+PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF_FILE))
+SRC = $(addprefix $(PRINTF_SRC_DIR), $(PRINTF_SRC))
 LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_FILES))
-
 
 # Objects
 OBJS = $(PUSH_SWAP:.c=.o) $(PRINTF:.c=.o) $(SRC:.c=.o) $(LIBFT:.c=.o)
